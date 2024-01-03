@@ -9,7 +9,9 @@ services:
       ONLINE_MODE: "false"
       ICON: "https://static.wikia.nocookie.net/vsbattles/images/b/b6/Yveltal.png/revision/latest?cb=20180428232050"
       MOTD: "§9Xerneas§7, §4Yveltal§7, and §2Zygarde§7 are cool!"
-      OPS: hahehyhu
+      OPS: |
+        hahehyhu
+      EXISTING_OPS_FILE: MERGE
       MEMORY: "4G"
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
