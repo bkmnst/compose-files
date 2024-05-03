@@ -1,0 +1,19 @@
+services:
+  terraria-server:
+    image: hexlo/terraria-server-docker:latest
+    container_name: terraria-server
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - 7777:7777
+    volumes:
+      - ./world:/root/.local/share/Terraria/Worlds/
+    environment:
+      - world=/root/.local/share/Terraria/Worlds/Voronin.wld
+      - autocreate=2
+      - worldname=Voronin
+      - difficulty=1
+      - maxplayers=8
+      - port=7777
+      - motd="Terraronin Servaronin Papasonin!"
