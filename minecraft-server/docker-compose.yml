@@ -1,21 +1,32 @@
 services:
   mc:
     image: itzg/minecraft-server:stable
+    pull_policy: always
+    mem_limit: 8G
+    stop_grace_period: 1m
     environment:
       EULA: "true"
       TYPE: "PAPER"
-      ONLINE_MODE: "false"
-      ICON: "https://static.wikia.nocookie.net/vsbattles/images/b/b6/Yveltal.png/revision/latest?cb=20180428232050"
-      MOTD: "§9Xerneas§7, §4Yveltal§7, and §2Zygarde§7 are cool!"
+      VIEW_DISTANCE: "16"
+      SIMULATION_DISTANCE: "8"
+      REGION_FILE_COMPRESSION: "lz4"
+      INIT_MEMORY: "4G"
+      MAX_MEMORY: "6G"
+      ONLINE_MODE: "${MC_ONLINE_MODE:-false}"
+      ENFORCE_SECURE_PROFILE: "${MC_ONLINE_MODE:-false}"
       OPS: |
         hahehyhu
       EXISTING_OPS_FILE: MERGE
-      MEMORY: "4G"
+      MODRINTH_PROJECTS: |
+        chunky
+        skinsrestorer
+      ICON: /extras/icon.png
+      MOTD: "§9Xerneas§7, §4Yveltal§7, and §2Zygarde§7 are cool!"
     ports:
       - "25565:25565"
-      - "19132:19132/udp"
     volumes:
       - "mc:/data"
+      - "./icon.png:/extras/icon.png:ro"
     restart: always
 
 volumes:
